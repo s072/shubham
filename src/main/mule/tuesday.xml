@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="f998838b-0e51-486e-a2dd-06999b7f179a" >
+		<http:listener-connection host="0.0.0.0" port="8089" />
+	</http:listener-config>
+	<flow name="tuesdayFlow" doc:id="5a65fc03-b206-4942-a814-046b06c2f685" >
+		<http:listener doc:name="Listener" doc:id="7aa37e63-5d61-4a81-a195-cf9f7fdaa152" config-ref="HTTP_Listener_config" path="path"/>
+		<logger level="INFO" doc:name="Logger" doc:id="5bc1e360-de64-40f9-908c-12ba0e32c522" message="tuesday-project"/>
+	</flow>
+</mule>
