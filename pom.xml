@@ -17,7 +17,41 @@
 		<app.runtime>4.1.5</app.runtime>
 		<mule.maven.plugin.version>3.2.6</mule.maven.plugin.version>
 	</properties>
-
+<profiles>
+<profile>
+  <id>cloudhub</id>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.mule.tools.maven</groupId>
+        <artifactId>mule-maven-plugin</artifactId>
+        <configuration>
+          <deploymentType>cloudhub</deploymentType>
+          <muleVersion>${mule.version}</muleVersion> 
+          <username>sharma0824</username> 
+          <password>Sharma0824</password> 
+          <applicationName>App1</applicationName>
+          <environment>Sandbox</environment> 
+          <businessGroup>wipro</businessGroup>
+          <region>${cloudhub.region}</region>
+          <uri>${anypoint.uri}</uri> 
+          <workerType>Micro</workerType>
+          <workers>${cloudhub.workers}</workers>
+        </configuration>
+        <executions>
+          <execution>
+            <id>deploy</id>
+            <phase>deploy</phase>
+            <goals>
+              <goal>deploy</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</profile>
+</profiles>
 	<build>
 		<plugins>
 			<plugin>
